@@ -6,7 +6,6 @@ I hate to be corny, but there is no silver bullet (or "magic combination") for t
 
 PR's are really needed for fixing my english, fixing enventual wrong concepts, adding relevant information and techniques, adding links.
 
-----------
 
 
 ## Terms and meanings
@@ -19,8 +18,6 @@ There are a lot of terms used (on [docs](https://facebook.github.io/react-native
  - **Blank areas** means that the VirtualizedList couldn't render your items fast enough, so you enter on a part of your list with non rendered components.
  - **Window** here is not your viewport but rather, size of the area in which items should be rendered.
 
-
-----------
 
 
 ## Props
@@ -66,8 +63,6 @@ It also fires a warning that the above tweaks will not work, because you're now 
 ### disableVirtualization
 You will see people advocation the use of this prop on some issues. But [this is deprecated now](https://facebook.github.io/react-native/docs/virtualizedlist.html#disablevirtualization). This used to do something similar to `legacyImplementation`.
 
-
-----------
 
 
 ## List items
