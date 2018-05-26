@@ -15,7 +15,7 @@ There are a lot of terms used (on [docs](https://facebook.github.io/react-native
 
  - **Performance**, in this context, imply a smooth (not chopy) scroll (and navigation in or out of your list) experience.
  - **Memory consumption**, in this context, is how much information about your list is being stored in memory, which could lead to a app crash.
- - **Responsiveness**, in this context, is your apps's ability to respond to interactions. Low responsivity is when you touch and it waits a bit to respond.
+ - **Responsiveness**, in this context, is your apps's ability to respond to interactions. Low responsiveness, for instance, is when you touch on a component and it waits a bit to respond, instead of responding immediately as expected.
  - **Blank areas** means that the VirtualizedList couldn't render your items fast enough, so you enter on a part of your list with non rendered components.
  - **Window** here is not your viewport but, rather, the area size in which items should be rendered.
 
