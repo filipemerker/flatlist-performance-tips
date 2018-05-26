@@ -27,13 +27,17 @@ One way to improve your `FlatList` is by tweaking it's props. Here are a list of
 ### removeClippedSubviews
 You can set the `removeClippedSubviews` prop to true, which unmount components that are off of the window.
 
+[Default: `false`](https://github.com/facebook/react-native/issues/13316#issuecomment-298044067)
+
 **Win:** This is very memory friendly, as you will always have a little amount of rendered items instead of the whole list.
 
 **Trade offs:** Be aware that this implementation can have bugs, such as missing content (mainly observed on iOS) if you use it on a component that will not unmount (such as a root navigation scene).
 It also can be less performant, having choppy scroll animations for big lists with complex items on not-so-good devices, as it makes crazy amounts of calculations per scroll.
 
 ### maxToRenderPerBatch
-You can set the `maxToRenderPerBatch={number}`, which is a `VirtualizedList` prop that can be passed directly to `FlatList`. With this, you can control the amount of items rendered per batch, which is the next chunk of items rendered on every scroll. 
+You can set the `maxToRenderPerBatch={number}`, which is a `VirtualizedList` prop that can be passed directly to `FlatList`. With this, you can control the amount of items rendered per batch, which is the next chunk of items rendered on every scroll.
+
+[Default: `10`](https://github.com/facebook/react-native/blob/7d741d1119532213e2c30707320351fb56c63953/Libraries/Lists/VirtualizedList.js#L439)
 
 **Win:** Setting a bigger number means less visual blank areas when scrolling (a better the fill rate).
 
@@ -42,12 +46,16 @@ You can set the `maxToRenderPerBatch={number}`, which is a `VirtualizedList` pro
 ### updateCellsBatchingPeriod
 While `maxToRenderPerBatch` tells the amount of items rendered per batch, setting `updateCellsBatchingPeriod={number}` tells to your VirtualizedList the delay, [in milliseconds](https://github.com/facebook/react-native/blob/d01ab66b47a173a62eef6261e2415f0619fefcbb/Libraries/Interaction/Batchinator.js#L24), between batch renders. In other words, it defines how frequently your component will be rendering the windowed items.
 
+[Default: `50`](https://github.com/facebook/react-native/blob/7d741d1119532213e2c30707320351fb56c63953/Libraries/Lists/VirtualizedList.js#L442)
+
 **Win:** Combining this prop with `maxToRenderPerBatch` gives you the power to, for example, render more items in a less frequent batch, or less items in a more frequent batch. Which works the best for your use case.
 
 **Trade offs:** Less frequent batches may cause blank areas. More frequent batches may cause responsiveness and performance loss.
 
 ### initialNumToRender
 You can set the `initialNumToRender={number}`. This means the initial amount of items to render.
+
+[Default: `10`](https://github.com/facebook/react-native/blob/7d741d1119532213e2c30707320351fb56c63953/Libraries/Lists/VirtualizedList.js#L428)
 
 **Win:** You can set this value to the precise number of items that would cover the screen for every device. This can be a big performance boost when rendering the list component.
 
@@ -56,12 +64,16 @@ You can set the `initialNumToRender={number}`. This means the initial amount of 
 ### windowSize
 You can set the `windowSize={number}`. The number passed here is a measurement unit where 1 is equivalent to your viewport height. The default value is 21, being 10 viewports above, 10 below, and one in between.
 
+[Default: `21`](https://facebook.github.io/react-native/docs/virtualizedlist.html#windowsize)
+
 **Win:** If you're worried mainly about performance, you can set a bigger `windowSize` so your list will run smoothly and with less blank space. If you're mainly worried about memory consumption, you can set a lower `windowSize` so your rendered list will be smaller.
 
 **Trade offs:** For a bigger `windowSize`, you will have a bigger memory consumption. For a lower `windowSize`, you will have lower performance and bigger change of seeing blank areas.
 
 ### legacyImplementation
 [This prop](https://facebook.github.io/react-native/docs/flatlist.html#legacyimplementation), when true, make your `FlatList` rely on the older `ListView`, instead of `VirtualizedList`.
+
+[Default: `false`](https://facebook.github.io/react-native/docs/flatlist.html#legacyimplementation)
 
 **Win:** This will make your list definitely perform better, as it removes virtualization and render all your items at once.
 
@@ -93,14 +105,24 @@ Implement update verification to your components. React's PureComponent implemen
 ----------
 
 ## Links
+There is a lot of discussion going on about this topic, so below I try to list the most relevant threads
+
+### Articles and posts
+
 [The main thread about the topic](https://github.com/facebook/react-native/issues/13413)
 
 [Very well documented memory leak](https://github.com/facebook/react-native/issues/16590)
 
-[VirtualizedList doc](https://facebook.github.io/react-native/docs/virtualizedlist.html#disablevirtualization)
-
-[FlatList doc](https://facebook.github.io/react-native/docs/flatlist.html#legacyimplementation)
-
 [Optimizing list render performance in React Native (by @shichongrui)](http://matthewsessions.com/2017/05/15/optimizing-list-render-performance.html)
 
 [React Native 100+ items flatlist very slow performance (on StackOverflow)](https://stackoverflow.com/questions/44384773/react-native-100-items-flatlist-very-slow-performance)
+
+### Oficial content
+
+[VirtualizedList doc](https://facebook.github.io/react-native/docs/virtualizedlist.html#disablevirtualization)
+
+[VirtualizedList code](https://github.com/facebook/react-native/blob/7d741d1119532213e2c30707320351fb56c63953/Libraries/Lists/VirtualizedList.js)
+
+[FlatList doc](https://facebook.github.io/react-native/docs/flatlist.html#legacyimplementation)
+
+[FlatList code](https://github.com/facebook/react-native/blob/7d741d1119532213e2c30707320351fb56c63953/Libraries/Lists/FlatList.js)
