@@ -33,11 +33,18 @@ You can set the `removeClippedSubviews` prop to true, which unmount components t
 It also can be less performant, having choppy scroll animations for big lists with complex items on not-so-good devices, as it makes crazy amounts of calculations per scroll.
 
 ### maxToRenderPerBatch
-You can set the `maxToRenderPerBatch={number}`, which is a `VirtualizedList` prop that can be passed directly to `FlatList`. With this, you can control the amount of items rendered per batch, which is the next chunk of items rendered on every scroll.
+You can set the `maxToRenderPerBatch={number}`, which is a `VirtualizedList` prop that can be passed directly to `FlatList`. With this, you can control the amount of items rendered per batch, which is the next chunk of items rendered on every scroll. 
 
 **Win:** Setting a bigger number means less visual blank areas when scrolling (a better the fill rate).
 
 **Trade offs:** More items per batch means less javascript performance, which means less responsiveness (clicking a item and opening the detail). If you have a static and non-interactive list, this could be the way to go.
+
+### updateCellsBatchingPeriod
+While `maxToRenderPerBatch` tells the amount of items rendered per batch, setting `updateCellsBatchingPeriod={number}` tells to your VirtualizedList the delay, [in milliseconds](https://github.com/facebook/react-native/blob/d01ab66b47a173a62eef6261e2415f0619fefcbb/Libraries/Interaction/Batchinator.js#L24), between batch renders. In other words, it defines how frequently your component will be rendering the windowed items.
+
+**Win:** Combining this prop with `maxToRenderPerBatch` gives you the power to, for example, render more items in a less frequent batch, or less items in a more frequent batch. Which works the best for your use case.
+
+**Trade offs:** Less frequent batches may cause blank areas. More frequent batches may cause responsiveness and performance loss.
 
 ### initialNumToRender
 You can set the `initialNumToRender={number}`. This means the initial amount of items to render.
