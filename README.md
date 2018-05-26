@@ -27,10 +27,10 @@ One way to improve your `FlatList` is by tweaking it's props. Here are a list of
 ### removeClippedSubviews
 You can set the `removeClippedSubviews` prop to true, which unmount components that are off of the window.
 
-**Win:** This is very memory friendly, as you will always have a little rendered list.
+**Win:** This is very memory friendly, as you will always have a little amount of rendered items instead of the whole list.
 
-**Trade offs:** Be aware, that this implementation can have bugs, such as missing content if you use it on a component that will not unmount (such as a navigation route).
-It also can be less performant, having choppy scroll animations for big lists with complex items on not-so-good devices, as it make crazy amounts of calculations per scroll.
+**Trade offs:** Be aware that this implementation can have bugs, such as missing content (mainly observed on iOS) if you use it on a component that will not unmount (such as a root navigation scene).
+It also can be less performant, having choppy scroll animations for big lists with complex items on not-so-good devices, as it makes crazy amounts of calculations per scroll.
 
 ### maxToRenderPerBatch
 You can set the `maxToRenderPerBatch={number}`, which is a `VirtualizedList` prop that can be passed directly to `FlatList`. With this, you can control the amount of items rendered per batch, which is the next chunk of items rendered on every scroll.
