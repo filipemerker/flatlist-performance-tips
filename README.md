@@ -97,11 +97,22 @@ The heavier your components are, the slower they render. Avoid heavy images (use
 
 ### Use shouldComponentUpdate
 Implement update verification to your components. React's PureComponent implement a `shouldComponentUpdate` with shallow compasion. This is expensive here, because it need to check all your props. If you want a good bit-level performance, create the strictest rules for your list item components, checking only props that could potentially change. If your list is simple enough, you could even use
-
+```js
     shouldComponentUpdate() {
       return false
     }
+```
 
+### Use getItemLayout
+You can set the `getItemLayout` to your `FlatList` component. If all your list item components have the same height (or width, for a horizontal list), passing this prop removes the need for your `FlatList` to dynamically calculate it every time. This is a very desirable optimization technique and if your components have dynamic size, and you really need performance, consider asking your design team if they may think of a redesign in order to perform better.
+Your method should look like this, for items with height of, say, `70`:
+```js
+   getItemLayout = (data, index) => ({
+     length: 70,
+     offset: 70 * index,
+     index
+   })
+```
 ----------
 
 ## Links
