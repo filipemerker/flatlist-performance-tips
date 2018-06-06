@@ -113,6 +113,12 @@ Your method should look like this, for items with height of, say, `70`:
      index
    })
 ```
+
+### Use keyExtractor
+You can set the `keyExtractor` to your `FlatList` component. This prop is used for caching and as the React `key` to track item re-ordering. For example, if you're using your item id as the key:
+```js
+   keyExtractor={item => item.id}
+```
 ----------
 
 ## Links
