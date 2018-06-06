@@ -103,6 +103,9 @@ Implement update verification to your components. React's PureComponent implemen
     }
 ```
 
+### Use cached optimized images
+I personally use [react-native-fast-image](https://github.com/DylanVann/react-native-fast-image) from [@DylanVann](https://github.com/DylanVann). Every image in your list is a `new Image()` instance. The faster it reaches the `loaded` hook, the faster your Javascript thread will be free again.
+
 ### Use getItemLayout
 You can set the `getItemLayout` to your `FlatList` component. If all your list item components have the same height (or width, for a horizontal list), passing this prop removes the need for your `FlatList` to dynamically calculate it every time. This is a very desirable optimization technique and if your components have dynamic size, and you really need performance, consider asking your design team if they may think of a redesign in order to perform better.
 Your method should look like this, for items with height of, say, `70`:
