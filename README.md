@@ -4,7 +4,7 @@ React Native's `FlatList` is great! But when it comes to big lists it have some 
 
 I hate to be corny, but there is no silver bullet (or "magic combination") for this issue. You have to consider the trade offs of every approach and what you think is a good experience for your audience and the best strategy for your app. But fortunatelly there are several tweaks you can try and improve your `FlatList`.
 
-PR's are really needed for fixing my English, fixing wrong concepts, adding relevant information and techniques, and adding links.
+PR's are really needed for fixing my English, fixing wrong concepts, adding relevant information and techniques, and adding links. Giving a ⭐ is also very helpful (:
 
 
 
