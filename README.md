@@ -68,7 +68,7 @@ You can set the `windowSize={number}`. The number passed here is a measurement u
 
 **Win:** If you're worried mainly about performance, you can set a bigger `windowSize` so your list will run smoothly and with less blank space. If you're mainly worried about memory consumption, you can set a lower `windowSize` so your rendered list will be smaller.
 
-**Trade offs:** For a bigger `windowSize`, you will have a bigger memory consumption. For a lower `windowSize`, you will have lower performance and bigger change of seeing blank areas.
+**Trade offs:** For a bigger `windowSize`, you will have a bigger memory consumption. For a lower `windowSize`, you will have lower performance and bigger chance of seeing blank areas.
 
 ### legacyImplementation
 [This prop](https://facebook.github.io/react-native/docs/flatlist.html#legacyimplementation), when true, make your `FlatList` rely on the older `ListView`, instead of `VirtualizedList`.
