@@ -1,6 +1,6 @@
 # How to improve RN's FlatList performance?
 
-React Native's `FlatList` is great! But when it comes to big lists it have some flaws. There are a lot of issues and blog posts talking about how you can improve it. Here, however, as someone really concerned about this, i'll make an attempt to create an exhaustive, comprehensive and collaborative documentation about this.
+React Native's `FlatList` is great! But when it comes to big lists it has some flaws. There are a lot of issues and blog posts talking about how you can improve it. Here, however, as someone really concerned about this, i'll make an attempt to create an exhaustive, comprehensive and collaborative documentation about this.
 
 I hate to be corny, but there is no silver bullet (or "magic combination") for this issue. You have to consider the trade offs of every approach and what you think is a good experience for your audience and the best strategy for your app. But fortunatelly there are several tweaks you can try and improve your `FlatList`.
 
