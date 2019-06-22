@@ -1,3 +1,5 @@
+I'm proud to announce that this article is now [part of the official docs](https://facebook.github.io/react-native/docs/next/optimizing-flatlist-configuration).
+
 # How to improve RN's FlatList performance?
 
 React Native's `FlatList` is great! But when it comes to big lists it has some flaws. There are a lot of issues and blog posts talking about how you can improve it. Here, however, as someone really concerned about this, i'll make an attempt to create an exhaustive, comprehensive and collaborative documentation about this.
