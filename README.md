@@ -97,10 +97,10 @@ There are also some win-win strategies that involves your list item components. 
 The more complex your components are, the slower they will render. Try to avoid a lot of logic and nesting in your list items. If you are reusing this list item component a lot in your app, create a duplicate just for your big lists and make them with less logic as possible and less nested as possible.
 
 ### Use light components
-The heavier your components are, the slower they render. Avoid heavy images (use a cropped version for list items, as small as possible). Talk to your design team, use as little effects and interactions and information as possible in your list. Save them to your item's detail.
+The heavier your components are, the slower they render. Compress your images. Talk to your design team, use as little effects and interactions and information as possible in your list. Save them to your item's detail.
 
-### Use shouldComponentUpdate
-Implement update verification to your components. React's PureComponent implements a `shouldComponentUpdate` with shallow comparison. This is expensive because it needs to check all your props. If you want a good bit-level performance, create stricter rules for your list item components, checking only props that could potentially change. If your list is simple enough, you could even use
+### Use memoization
+Use `React.memo`, `useMemo`, `useCallback`, `React.PureComponent`, `shouldComponentUpdate` to prevent unnecessary renders and computations. Keep in mind that these methods only perform shallow comparison so be specific of what you compare to avoid unexpected or skipped renders. If your list is simple enough, you could even use
 ```js
     shouldComponentUpdate() {
       return false
