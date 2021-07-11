@@ -94,13 +94,13 @@ You will see people advocation the use of this prop on some issues. But [this is
 There are also some win-win strategies that involves your list item components. They are being managed by VirtualizedList a lot, so they need to be fast.
 
 ### Use simple components
-The more complex your components are, the slower they will render. Try to avoid a lot of logic and nesting in your list items. If you are reusing this list item component a lot in your app, create a duplicate just for your big lists and make them with less logic as possible and less nested as possible.
+Try to avoid putting too much logic and nesting in your list item. If your list item component is reused elsewhere in your app, create a dedicated one just for your big lists and simplify them as much as possible.
 
 ### Use light components
-The heavier your components are, the slower they render. Avoid heavy images (use a cropped version for list items, as small as possible). Talk to your design team, use as little effects and interactions and information as possible in your list. Save them to your item's detail.
+Compress your images. Persuade your design team to avoid fancy animations and displaying too much information in your list.
 
-### Use shouldComponentUpdate
-Implement update verification to your components. React's PureComponent implement a `shouldComponentUpdate` with shallow compasion. This is expensive here, because it need to check all your props. If you want a good bit-level performance, create the strictest rules for your list item components, checking only props that could potentially change. If your list is simple enough, you could even use
+### Use memoization
+Use `React.memo`, `useMemo`, `useCallback`, `React.PureComponent`, `shouldComponentUpdate` to prevent unnecessary renders and computations. Keep in mind that these methods only perform shallow comparison so be specific of what you compare to avoid unexpected or skipped renders. If your list is simple enough, you could even use
 ```js
     shouldComponentUpdate() {
       return false
