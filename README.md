@@ -94,7 +94,7 @@ You will see people advocation the use of this prop on some issues. But [this is
 There are also some win-win strategies that involves your list item components. They are being managed by VirtualizedList a lot, so they need to be fast.
 
 ### Use simple components
-Try to avoid putting too much logic and nesting in your list item. If your list item component is reused elsewhere in your app, create a dedicated one just for your big lists and make simplify them as much as possible.
+Try to avoid putting too much logic and nesting in your list item. If your list item component is reused elsewhere in your app, create a dedicated one just for your big lists and simplify them as much as possible.
 
 ### Use light components
 Compress your images. Persuade your design team to avoid fancy animations and displaying too much information in your list.
