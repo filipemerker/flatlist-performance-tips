@@ -100,7 +100,7 @@ The more complex your components are, the slower they will render. Try to avoid 
 The heavier your components are, the slower they render. Avoid heavy images (use a cropped version for list items, as small as possible). Talk to your design team, use as little effects and interactions and information as possible in your list. Save them to your item's detail.
 
 ### Use shouldComponentUpdate
-Implement update verification to your components. React's PureComponent implement a `shouldComponentUpdate` with shallow compasion. This is expensive here, because it need to check all your props. If you want a good bit-level performance, create the strictest rules for your list item components, checking only props that could potentially change. If your list is simple enough, you could even use
+Implement update verification to your components. React's PureComponent implements a `shouldComponentUpdate` with shallow comparison. This is expensive because it needs to check all your props. If you want a good bit-level performance, create stricter rules for your list item components, checking only props that could potentially change. If your list is simple enough, you could even use
 ```js
     shouldComponentUpdate() {
       return false
